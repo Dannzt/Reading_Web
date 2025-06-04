@@ -1,0 +1,86 @@
+body {
+    background-color: black;
+    color: rgb(238, 0, 0);
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/* Elementos navbar*/
+.navbar-custom {
+    background-color: #111;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* Letras logo*/
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+
+/* Links de navegação*/
+.nav-links a {
+    color: #ccc;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+/* Tamanho da pagina*/
+/* Forma que é feita a tela*/
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+/* Box central */
+.form-container {
+    background-color: #222;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+}
+/*Cor letra box*/
+.form-label {
+    color: #cccccc;
+}
+
+.form-control {
+    background-color: #302f2f;
+    color: white;
+    border: none;
+}
+
+.form-control::placeholder {
+    color: #aaa;
+}
+/* Botão log*/
+.btn-log {
+    background-color: limegreen;
+    border: none;
+    padding: 6px 12px;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+}
+
+.btn-log:hover {
+    background-color: green;
+}
+
+h3 {
+    text-align: center;
+}
