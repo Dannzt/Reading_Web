@@ -23,6 +23,12 @@ body {
     align-items: center;
 }
 
+/*Imagens para Box review*/ 
+.review-img {
+    height: 32px; 
+    object-fit: contain;
+}
+
 
 /* Links de navegação*/
 .nav-links a {
@@ -45,17 +51,48 @@ body {
     align-items: center;
     padding: 20px;
 }
-/* Box central */
-.form-container {
+
+/* Box registro */
+.form-registro {
     background-color: #222;
     padding: 30px;
     border-radius: 10px;
     width: 100%;
     max-width: 500px;
 }
+
+/*Box livros review home */
+.form-review-home {
+    background-color: #222;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1400px;
+    margin-top: 0px;
+}
+
+.book-thumb {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.book-thumb:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+#form-review-home {
+    width: 100%;
+    max-width: 1200px;
+    padding: 40px 20px;
+}
+
 /*Cor letra box*/
 .form-label {
-    color: #cccccc;
+    color: #cecece;
 }
 
 .form-control {
@@ -67,6 +104,7 @@ body {
 .form-control::placeholder {
     color: #aaa;
 }
+
 /* Botão log*/
 .btn-log {
     background-color: limegreen;
@@ -83,4 +121,8 @@ body {
 
 h3 {
     text-align: center;
+}
+
+h4 {
+    padding: 6px;
 }
