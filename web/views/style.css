@@ -126,3 +126,31 @@ h3 {
 h4 {
     padding: 6px;
 }
+
+/* Define tamanho fixo, proporcional, para os livros */
+.book-thumb {
+    width: 100%;
+    height: 200px; /* Altura uniforme para todos */
+    object-fit: cover; /* Corta proporcionalmente, sem distorcer */
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.book-thumb:hover {
+    transform: scale(1.05);
+}
+
+/* Estilo para o carrossel */
+.custom-carousel {
+    width: 950px;
+    height: 100px;
+    overflow: hidden;
+}
+
+/* Ajuste das imagens dentro do carrossel */
+.custom-carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Preenche o espaço cortando proporcionalmente */
+    border-radius: 8px;
+}
