@@ -8,6 +8,7 @@ const express  = require ('express');
 const mustacheExpress = require('mustache-express');
 const app = express();
 
+app.use(express.static('public'));
 app.engine('html', mustacheExpress());
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
