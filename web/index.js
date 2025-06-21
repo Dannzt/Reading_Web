@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
     const erro_form = req.query.erro_form;
-    res.render('home.html', { erro_form });
+    res.render('login.html', { erro_form });
 });
 
 
