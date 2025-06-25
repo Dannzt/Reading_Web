@@ -24,10 +24,10 @@
     <div class="main-content">
         <div id="form-registro" class="form-registro">
             <h3>Login</h3>
-            <form action="/autenticar" method="post">
+            <form action="/usuario-cadastro" method="post">
                 <div class="mb-3">
-                    <label for="email" class="form-label">Login:</label>
-                    <input type="email" class="form-control" name="email" placeholder="Informe seu Login" id="email">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" class="form-control" name="email" placeholder="Informe seu Email" id="email">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Senha:</label>
@@ -36,9 +36,7 @@
                 <div class="col-6 offset-3 mt-3">
                     <button type="submit" class="w-100 btn btn-success">Enviar</button>
                     <hr>
-                    
-                    <p style="text-align: center;">Não tem um cadastro? <a href="/cadastro_usuario">Cadastre-se Aqui.</a></p>
-                </div>
+                    <p style="text-align: center;">Não tem um cadastro? <a href="/usuario-cadastro">Cadastre-se Aqui.</a></p>
                 </div>
             </form>
         </div>

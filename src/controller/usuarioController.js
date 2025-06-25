@@ -1,33 +1,33 @@
 const Usuario = require('../model/usuario');
 
-function getCadastroView(req, res){
-    res.render('cadastrar_usuario.html');
+function getCadastroView(request, response){
+    response.render('usuario_cadastro.html');
 }
 
-function cadastrarUsuario(req, res) {
+function cadastrarUsuario(request, response) {
     let usuario = {
-        email: req.body.email,
-        senha: req.body.senha,
-        nome: req.body.nome,
-        data_nascimento: req.body.data_nascimento
+        email: request.body.email,
+        senha: request.body.senha,
+        nome: request.body.nome,
+        data_nascimento: request.body.data_nascimento
     }
     
     Usuario.create(usuario).then(()=>{
         let sucesso = true;
-        res.render("index.html", {sucesso});
+        request.flash.save("sucesso", true)
+        response.redirect("/usuario-login");
     }).catch((err)=>{
         console.log(err);
-        let erro = true;
-        res.render("index.html", {erro});
+        request.flash.save("erro", `Erro durante o cadastro do usuario: ${err}`)
+        response.redirect("/usuario-login");
     });
-
 }
 
-function listarUsuarios(req, res) {
+function listarUsuarios(request, response) {
     Usuario.findAll().then((usuarios)=>{
-        res.json(usuarios);
+        response.json(usuarios);
     }).catch((err)=>{
-        res.json(err);
+        response.json(err);
     });
 }
 

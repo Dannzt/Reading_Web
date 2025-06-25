@@ -3,12 +3,14 @@ const router = express.Router();
 
 const usuarioController = require('../controller/usuarioController');
 
-router.post('/cadastrar_usuario', usuarioController.cadastrarUsuario);
+router.post('/usuario-cadastro', usuarioController.cadastrarUsuario);
 router.get('/api/usuarios', usuarioController.listarUsuarios);
 
-router.get('/cadastro_usuario', (req, res) => {
-    res.render('cadastrar_usuario.html');
+router.get('/usuario-login', (request, response) => {
+    response.render('usuario_login.html')
 });
-
+router.get('/usuario-cadastro', (request, response) => {
+    response.render('usuario_cadastro.html');
+});
 
 module.exports = router;
