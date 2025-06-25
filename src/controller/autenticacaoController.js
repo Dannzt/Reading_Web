@@ -1,6 +1,6 @@
 const Usuario = require('../model/usuario'); // chamando tabela de usuarios
 
-async function autenticar(request, response){
+async function autenticarUsuario(request, response){
     const usuario = await Usuario.findOne({ //await garantir codigo sequencial (async)
         where: {
         email: request.body.email,
@@ -9,13 +9,13 @@ async function autenticar(request, response){
     });
     // grava a informação do usuario dentro da sessão 
     if(usuario !== null){
-        request.session.autorizado = true; //criando um valor temporario para mostrar que está logado na sessão
+        request.session.autorizado = true; //criando um valor temporário para mostrar que está logado na sessão
         request.session.usuario = usuario;
         response.redirect('/home'); // apos a validação retorna para a home page
     }
     else{
-        let erro_autenticacao = true;
-        response.render('usuario_login.html', {erro_autenticacao}); // caso ususario não logue, volta para a tela inicial com mensagem de erro
+        request.flash.save('error', "Usuario Nulo!")
+        response.redirect('/usuario-login'); // caso usuario não logue, volta para a tela inicial com mensagem de erro
     }
 }
 // verificar a veracidade da autentificação
@@ -37,7 +37,7 @@ function sair(request, response) {
 }
 
 module.exports = {
-    autenticar,
+    autenticarUsuario,
     verificarAutenticacao,
     sair
 }

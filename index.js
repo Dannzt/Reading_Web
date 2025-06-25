@@ -20,6 +20,44 @@ app.use(session({
     saveUninitialized: false
 }))
 
+app.use((request, response, next) => {
+
+    if (!request.session.flash) {
+        request.session.flash = {}
+    }
+
+    request.flash = {
+        /**
+         * Guarda um valor temporário na sessão.
+         * @param {string} name - Nome do valor
+         * @param {*} value - O valor em sí que será guardado
+         */
+        save: function(name, value) {
+            request.session.flash[name] = value
+        },
+        //Load pode retornar um valor UNDEFINED se o valor não existir!
+        /**
+         * Pega o valor guardado da sessão e retorna ela.
+         * @param {string} name - nome do valor
+         */
+        load: function(name) {
+            const value =  request.session.flash[name]
+            delete request.session.flash[name]
+            return value
+        },
+
+        loadAllAndClear: function() {
+            const allValues = { ...request.session.flash}
+            request.session.flash = {}
+            return allValues
+        }
+    }
+
+    response.locals.flash = request.flash.loadAllAndClear()
+
+    next()
+});
+
 // Define as rotas da aplicação (declaradas na pasta /src/routes/)
 app.use('/', require('./src/routes/anotacaoRoutes'));
 app.use('/', require('./src/routes/usuarioRoutes')); // informação usuario 

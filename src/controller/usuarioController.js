@@ -14,13 +14,13 @@ function cadastrarUsuario(request, response) {
     
     Usuario.create(usuario).then(()=>{
         let sucesso = true;
-        response.render("usuario_login.html", {sucesso});
+        request.flash.save("sucesso", true)
+        response.redirect("/usuario-login");
     }).catch((err)=>{
         console.log(err);
-        let erro = true;
-        response.render("usuario_login.html", {erro});
+        request.flash.save("erro", `Erro durante o cadastro do usuario: ${err}`)
+        response.redirect("/usuario-login");
     });
-
 }
 
 function listarUsuarios(request, response) {
