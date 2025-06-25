@@ -3,11 +3,11 @@ const router = express.Router();
 
 const usuarioController = require('../controller/usuarioController');
 
-router.post('/cadastrar_usuario', usuarioController.cadastrarUsuario);
+router.post('/usuario_cadastro', usuarioController.cadastrarUsuario);
 router.get('/api/usuarios', usuarioController.listarUsuarios);
 
-router.get('/cadastro_usuario', (request, response) => {
-    response.render('cadastrar_usuario.html');
+router.get('/usuario_cadastro', (request, response) => {
+    response.render('usuario_cadastro.html');
 });
 
 

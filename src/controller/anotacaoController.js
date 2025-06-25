@@ -1,7 +1,7 @@
 const Anotacao = require('../model/anotacao');
 
 function indexView(req, res) {
-    res.render('index.html');
+    res.render('usuario_login.html');
 }
 
 function homeView(request, response) {

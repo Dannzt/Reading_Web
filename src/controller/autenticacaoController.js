@@ -15,7 +15,7 @@ async function autenticar(request, response){
     }
     else{
         let erro_autenticacao = true;
-        response.render('index.html', {erro_autenticacao}); // caso ususario não logue, volta para a tela inicial com mensagem de erro
+        response.render('usuario_login.html', {erro_autenticacao}); // caso ususario não logue, volta para a tela inicial com mensagem de erro
     }
 }
 // verificar a veracidade da autentificação
