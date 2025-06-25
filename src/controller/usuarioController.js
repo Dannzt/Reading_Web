@@ -1,5 +1,9 @@
 const Usuario = require('../model/usuario');
 
+function getCadastroView(req, res){
+    res.render('cadastrar_usuario.html');
+}
+
 function cadastrarUsuario(req, res) {
     let usuario = {
         email: req.body.email,
@@ -29,5 +33,6 @@ function listarUsuarios(req, res) {
 
 module.exports = {
     cadastrarUsuario,
-    listarUsuarios
+    listarUsuarios,
+    getCadastroView 
 }

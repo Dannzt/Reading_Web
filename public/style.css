@@ -1,43 +1,156 @@
-.bg-image {
-    height: 100%; 
-    background-image: url('img/preto.png');
-    background-size: cover;
+body {
+    background-color: black;
+    color: rgb(255, 255, 255);
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/* Elementos navbar*/
+.navbar-custom {
+    background-color: #111;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* Letras logo*/
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
 }
 
-.sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
-    padding: 90px 0 0;
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-    z-index: 99;
+/*Imagens para Box review*/ 
+.review-img {
+    height: 32px; 
+    object-fit: contain;
 }
 
-@media (max-width: 767.98px) {
-    .sidebar {
-        top: 11.5rem;
-        padding: 0;
-    }
-}
-    
-.navbar {
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .1);
+
+/* Links de navegação*/
+.nav-links a {
+    color: #ccc;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: 500;
 }
 
-@media (min-width: 767.98px) {
-    .navbar {
-        top: 0;
-        position: sticky;
-        z-index: 999;
-    }
+.nav-links a:hover {
+    color: white;
 }
 
-.sidebar .nav-link {
-    color: #333;
+/* Tamanho da pagina*/
+/* Forma que é feita a tela*/
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-.sidebar .nav-link.active {
-    color: #0d6efd;
+/* Box registro */
+.form-registro {
+    background-color: #222;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+}
+
+/*Box livros review home */
+.form-review-home {
+    background-color: #222;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1400px;
+    margin-top: 0px;
+}
+
+.book-thumb {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.book-thumb:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+#form-review-home {
+    width: 100%;
+    max-width: 1200px;
+    padding: 40px 20px;
+}
+
+/*Cor letra box*/
+.form-label {
+    color: #cecece;
+}
+
+.form-control {
+    background-color: #302f2f;
+    color: white;
+    border: none;
+}
+
+.form-control::placeholder {
+    color: #aaa;
+}
+
+/* Botão log*/
+.btn-log {
+    background-color: limegreen;
+    border: none;
+    padding: 6px 12px;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+}
+
+.btn-log:hover {
+    background-color: green;
+}
+
+h3 {
+    text-align: center;
+}
+
+h4 {
+    padding: 6px;
+}
+
+/* Define tamanho fixo, proporcional, para os livros */
+.book-thumb {
+    width: 100%;
+    height: 200px; /* Altura uniforme para todos */
+    object-fit: cover; /* Corta proporcionalmente, sem distorcer */
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.book-thumb:hover {
+    transform: scale(1.05);
+}
+
+/* Estilo para o carrossel */
+.custom-carousel {
+    width: 950px;
+    height: 100px;
+    overflow: hidden;
+}
+
+/* Ajuste das imagens dentro do carrossel */
+.custom-carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Preenche o espaço cortando proporcionalmente */
+    border-radius: 8px;
 }
