@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <div id="navbar" class="navbar-custom">
+        <div id="logo" class="logo">
+            <span class="ms-2">📚🕷🕸 Reading Web</span>
+        </div>
+        <div id="nav-links" class="nav-links">
+            <a href="#">User</a>
+            <a href="#">LIVROS</a>
+            <a href="#">LISTAS</a>
+            <button class="btn-log">+ 📚</button>
+        </div>
+    </div>
+
+    <!-- FORMULÁRIO -->
+    <div class="main-content">
+        <div id="form-registro" class="form-registro">
+            <h3>Login</h3>
+            <form action="/autenticar" method="post">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Login:</label>
+                    <input type="email" class="form-control" name="email" placeholder="Informe seu Login" id="email">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Senha:</label>
+                    <input type="password" class="form-control" name="senha" placeholder="Informe sua Senha" id="senha">
+                </div>
+                <div class="col-6 offset-3 mt-3">
+                    <button type="submit" class="w-100 btn btn-success">Enviar</button>
+                    <hr>
+                    
+                    <p style="text-align: center;">Não tem um cadastro? <a href="/cadastro_usuario">Cadastre-se Aqui.</a></p>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
