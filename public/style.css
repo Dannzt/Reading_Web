@@ -58,7 +58,7 @@ body {
     padding: 30px;
     border-radius: 10px;
     width: 100%;
-    max-width: 500px;
+    max-width: 800px;
 }
 
 /*Box livros review home */
@@ -153,4 +153,8 @@ h4 {
     height: 100%;
     object-fit: cover; /* Preenche o espaço cortando proporcionalmente */
     border-radius: 8px;
+}
+
+h5 {
+    filter: invert(100%); /* Inverte as cores */
 }
