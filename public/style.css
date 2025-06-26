@@ -155,6 +155,6 @@ h4 {
     border-radius: 8px;
 }
 
-h5 {
-    filter: invert(100%); /* Inverte as cores */
+.card-body {
+  filter: invert(1);
 }
