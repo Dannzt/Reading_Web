@@ -62,6 +62,8 @@ app.use((request, response, next) => {
 app.use('/', require('./src/routes/anotacaoRoutes'));
 app.use('/', require('./src/routes/usuarioRoutes')); // informação usuario 
 app.use('/', require('./src/routes/autenticacaoRoutes')); //validação autenticação
+app.use('/', require('./src/routes/livrariaRoutes'))
+app.use('/', require('./src/routes/livroRoutes'))
 
 db.sync(() => console.log(`Banco de dados conectado`));
 
