@@ -5,7 +5,8 @@ const Imagem = database.define('imagem', {
     id: {
         type: Sequelize.UUID,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        unique: true
     },
     path: {
         type: Sequelize.STRING,

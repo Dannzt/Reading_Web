@@ -1,11 +1,14 @@
+const UUID = require('uuid')
+const Multer = require('multer')
+
 const Livraria = require('../model/livraria');
-const Usuario = require('../model/usuario');
+const Imagem = require('../model/imagem');
 
 function getLivrariaView(request, response){
-    response.render('usuario_cadastro.html');
+    response.render('home.html');
 }
 
-async function criarLivraria(usuario) {
+async function criarImagem(usuario) {
     let livraria = {
         usuario: usuario.id
     }
@@ -30,35 +33,20 @@ async function getLivraria(usuario) {
     }
 }
 
-async function cadastrarLivraria(request, response) {
-    try {
-        const livraria = await getLivraria(request.usuario)
-        //Checa se a livraria é definida.
-        if (livraria) {
-            request.flash.save("sucesso", true)
-            response.redirect("/home");
-        } else {
-            request.flash.save("erro", `ERRO DURANTE A CRIAÇÃO DA LIVRARIA`)
-            response.redirect("/usuario-login");
-        }
-    } catch (err) {
-        console.log(`ERROR AO CADASTRAR A LIVRARIA: ${err}`)
-        response.redirect("/usuario-login")
-    }
+async function cadastrarImagem(request, response) {
+    console.log(request.file                   )
+
+    response.redirect('imagem-teste')
 }
 
-function listarLivrarias(request, response) {
-    Livraria.findAll().then((livrarias)=>{
-        response.json(livrarias);
+function listarImagens(request, response) {
+    Imagem.findAll().then((imagens)=>{
+        response.json(imagens);
     }).catch((err)=>{
         response.json(err);
     });
 }
 
 module.exports = {
-    cadastrarLivraria,
-    listarLivrarias,
-    criarLivraria,
-    getLivraria,
-    getLivrariaView
+    cadastrarImagem
 }
