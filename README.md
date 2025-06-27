@@ -24,6 +24,10 @@ VsCode: IDE recomendada para facilitar desenvolvimento do projeto.
  ```bash
   git clone https://github.com/Dannzt/Reading_Web.git
 ```
+Exemplo Visual: 
+<p align="center">
+<img  src="https://i.imgur.com/FsHi8R1.gif"
+</p>
 
 ## Executar o projeto 
 - Ao terminar o clone, vá até o terminal recém aberto.
@@ -39,17 +43,27 @@ VsCode: IDE recomendada para facilitar desenvolvimento do projeto.
 ```
 - Com isso vá ao seu navegador, e escreva o endereço ``` localhost:8080 ``` na barra de pesquisa.
 
+Exemplo Visual: 
+<p align="center">
+<img  src="https://i.imgur.com/nyelrnc.gif"
+</p>
+
 ## Passos do Sistema.
 - Crie uma conta clicando em ``` Cadastre-se Aqui ``` 
 - Preencha todos os campos para criar sua conta.
 - Após cadastra-se, logue preenchendo ``` login ``` e ``` senha ```
 - Após validar seus dados, já estará na home do site
 - Preencha os campos com o ``` Nome ``` do seu livro , ``` Genêro``` ,  e sua ```analise ``` sobre ele.
- - Por fim, divita-se com suas analises!! :) 
+ - Por fim, divita-se fazendo suas analises!! :) 
+
+Exemplo Visual: 
+<p align="center">
+<img  src="https://i.imgur.com/Ns3Y82r.gif"
+</p>
 
 ## Tecnologias Utilizadas: 
 
- <img src="https://skillicons.dev/icons?i=js,nodejs,html" />
+ <img src="https://skillicons.dev/icons?i=js,nodejs,html,sqlite" />
 
  
 
