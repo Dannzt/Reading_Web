@@ -1,4 +1,5 @@
 const UUID = require('uuid')
+const path = require('path')
 const Multer = require('multer')
 
 const Livraria = require('../model/livraria');
@@ -33,10 +34,20 @@ async function getLivraria(usuario) {
     }
 }
 
-async function cadastrarImagem(request, response) {
-    console.log(request.file                   )
-
-    response.redirect('imagem-teste')
+function cadastrarImagem(request, response) {
+    let file_uuid = path.parse(request.file.filename).name;
+    let file_path = request.file.path;
+    console.log(request.file);
+    let imagem = {
+        uuid: file_uuid,
+        path: file_path,
+    };
+    Imagem.create(imagem).then(() => {
+        response.redirect('/imagem-teste')
+    }).catch((err) => {
+        console.log(err);
+        response.redirect('/imagem-teste')
+    });
 }
 
 function listarImagens(request, response) {
@@ -48,5 +59,6 @@ function listarImagens(request, response) {
 }
 
 module.exports = {
-    cadastrarImagem
+    cadastrarImagem,
+    listarImagens
 }

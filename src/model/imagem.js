@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const database = require('../db');
 
 const Imagem = database.define('imagem', {
-    id: {
+    uuid: {
         type: Sequelize.UUID,
         allowNull: false,
         primaryKey: true,
