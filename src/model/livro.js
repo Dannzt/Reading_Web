@@ -8,12 +8,19 @@ const Livro = database.define('livro', {
         allowNull: false,
         primaryKey: true
     },
-    livraria: {
+    livraria_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        unique: true //O livro PRECISA ser parte de apenas uma livraria.
     },
-    nome: {
+    titulo: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
+    genero: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    descricao: {
         type: Sequelize.STRING,
         allowNull: false
     },
@@ -25,13 +32,9 @@ const Livro = database.define('livro', {
         type: Sequelize.INTEGER,
         allowNull: false
     },
-    descricao: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
     imagem: {
         type: Sequelize.UUID,
-        unique: true
+        allowNull: true
     }
 });
 

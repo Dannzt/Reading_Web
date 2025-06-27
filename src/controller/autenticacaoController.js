@@ -14,6 +14,7 @@ async function autenticarUsuario(request, response){
         response.redirect('/home'); // apos a validação retorna para a home page
     }
     else{
+        console.log("Usuario não autorizado!")
         request.flash.save('error', "Usuario Nulo!")
         response.redirect('/usuario-login'); // caso usuario não logue, volta para a tela inicial com mensagem de erro
     }
@@ -26,7 +27,7 @@ function verificarAutenticacao(request, response, next) {
     }
     else{
         console.log("usuário NÃO autorizado");
-        response.redirect('/'); // caso o usuario dê logout, irá ser encamidado para a pagina de origem
+        response.redirect('/usuario-login'); // caso o usuario dê logout, irá ser encamidado para a pagina de origem
     }   
 }
 

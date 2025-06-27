@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <form action="/cadastrar-livro" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="imagem" class="form-label">Imagem</label>
+            <input type="file" class="form-control" name="imagem" id="imagem">
+
+            <label for="pagina_total" class="form-label">Pagina Total:</label>
+            <input type="number" class="form-control" name="pagina_total" id="pagina_total">
+
+            <label for="pagina_atual" class="form-label">Pagina Atual:</label>
+            <input type="number" class="form-control" name="pagina_atual" id="pagina_atual">
+
+            <label for="titulo" class="form-label">Nome:</label>
+            <input type="text" class="form-control" name="titulo" id="titulo">
+
+            <label for="genero" class="form-label">Nome:</label>
+            <input type="text" class="form-control" name="genero" id="genero">
+
+            <label for="descricao" class="form-label">Descricao:</label>
+            <textarea class="form-control" name="descricao" id="descricao" rows="5"></textarea>
+
+            <button type="submit" class="w-100 btn btn-success">Enviar</button>
+        </div>
+    </form>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

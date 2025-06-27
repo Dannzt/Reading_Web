@@ -9,6 +9,7 @@ const storage = multer.diskStorage({
     destination: function (request, file, callback) {
         callback(null, "uploads/images")
     },
+    //Esta parte garante que o nome do arquivo se torne UUID.
     filename: function (request, file, callback) {
         const extension = path.extname(file.originalname)
         callback(null, UUID.v4() + extension)

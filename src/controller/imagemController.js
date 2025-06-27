@@ -2,52 +2,49 @@ const UUID = require('uuid')
 const path = require('path')
 const Multer = require('multer')
 
-const Livraria = require('../model/livraria');
 const Imagem = require('../model/imagem');
 
-function getLivrariaView(request, response){
-    response.render('home.html');
-}
-
-async function criarImagem(usuario) {
-    let livraria = {
-        usuario: usuario.id
-    }
-    return Livraria.create(livraria)
-}
-
-//Procura e retorna a livraria do usuario. Cria uma caso não tenha.
-async function getLivraria(usuario) {
-    try {
-        const livrarias = await Livraria.findAll({
-            where: { usuario: usuario.id }
-        })
-
-        if (livrarias.length === 0) {
-            return await criarLivraria(usuario);
-        } else {
-            return livrarias[0];
-        }
-    } catch(err) {
-        console.log(`ERRO AO OBTER OU CRIARA A LIVRARIA: ${err}`);
-        return undefined;
-    }
-}
-
-function cadastrarImagem(request, response) {
-    let file_uuid = path.parse(request.file.filename).name;
-    let file_path = request.file.path;
-    console.log(request.file);
+async function criarImagem(file) {
+    let file_uuid = path.parse(file.filename).name;
+    let file_path = file.path;
     let imagem = {
         uuid: file_uuid,
         path: file_path,
     };
-    Imagem.create(imagem).then(() => {
-        response.redirect('/imagem-teste')
-    }).catch((err) => {
-        console.log(err);
-        response.redirect('/imagem-teste')
-    });
+    return Imagem.create(imagem);
+}
+
+//Procura e retorna um caminho de imagem com o UUID dado, caso não encontre sera
+//retornado um caminho default.
+async function getImagem(uuid) {
+    if (!uuid) { return 'defaults/images/no_image.png'}
+    try {
+        const imagem = await Imagem.findAll({
+            where: { uuid: uuid },
+            raw: true
+        });
+
+        if (imagem.length === 0) {
+            return 'defaults/images/no_image.png';
+        } else {
+            return imagem[0].path;
+        }
+    } catch(err) {
+        console.log(`ERRO AO OBTER IMAGEM!: ${err}`);
+        return 'defaults/images/no_image.png';
+    }
+}
+
+async function cadastrarImagem(request) {
+    if (!request.file) return undefined
+    try{
+        let imagem = await criarImagem(request.file)
+        console.log(`Imagem [${request.file.originalname}] cadastrada!`);
+        return { uuid: imagem.uuid, path: imagem.path }
+    } catch(err) {
+        console.log(`ERRO AO CADASTRAR IMAGEM!: ${err}`);
+        return undefined
+    }
 }
 
 function listarImagens(request, response) {
@@ -59,6 +56,8 @@ function listarImagens(request, response) {
 }
 
 module.exports = {
+    criarImagem,
+    getImagem,
     cadastrarImagem,
     listarImagens
 }

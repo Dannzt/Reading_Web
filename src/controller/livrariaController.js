@@ -14,9 +14,14 @@ async function criarLivraria(usuario) {
 
 //Procura e retorna a livraria do usuario. Cria uma caso não tenha.
 async function getLivraria(usuario) {
+    if (!usuario) {
+        console.log('ERRO!: USUARIO INEXISTENTE!')
+        return undefined
+    }
     try {
         const livrarias = await Livraria.findAll({
-            where: { usuario: usuario.id }
+            where: { usuario: usuario.id },
+            raw: true
         })
 
         if (livrarias.length === 0) {
@@ -25,7 +30,7 @@ async function getLivraria(usuario) {
             return livrarias[0];
         }
     } catch(err) {
-        console.log(`ERRO AO OBTER OU CRIARA A LIVRARIA: ${err}`);
+        console.log(`ERRO AO OBTER OU CRIARA A LIVRARIA!: ${err}`);
         return undefined;
     }
 }
