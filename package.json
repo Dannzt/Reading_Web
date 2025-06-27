@@ -15,7 +15,7 @@
     "url": "https://github.com/Dannzt/Formulario/issues"
   },
   "homepage": "https://github.com/Dannzt/Formulario#readme",
-  "description": "",
+  "description": "<h2 align=\"center\">Reading Web <br> Diciplina de Programação Web  </a> </h2>",
   "dependencies": {
     "express": "^4.21.2",
     "express-session": "^1.18.1",
