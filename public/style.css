@@ -156,5 +156,15 @@ h4 {
 }
 
 .card-body {
-  filter: invert(1);
+  /*filter: invert(1);*/
+}
+
+.card-body h5,
+.card-body p {
+    color: black; /* Or a darker shade of grey like #333 or #000 */
+}
+
+/* If you want the card-header text to be black as well */
+.card-header {
+    color: black; /* Or a darker shade */
 }

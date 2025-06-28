@@ -1,38 +1,41 @@
 const Sequelize = require('sequelize');
 const database = require('../db');
 
-const Anotacao = database.define('anotacao', {
+const Livro = database.define('livro', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
-    id_usuario: {
+    livraria_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
     },
-    // propriedades anotações
     titulo: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
     },
-    subtitulo: {
+    genero: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    texto: {
+    descricao: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    indicador_ativo: {
+    pagina_total: {
         type: Sequelize.INTEGER,
         allowNull: false
     },
-    estilo: {
-        type: Sequelize.STRING,
+    pagina_atual: {
+        type: Sequelize.INTEGER,
         allowNull: false
+    },
+    imagem: {
+        type: Sequelize.STRING,
+        allowNull: true
     }
 });
-// definição de tabela, com as informações das anotações
-module.exports = Anotacao;
+
+module.exports = Livro;

@@ -1,4 +1,5 @@
 const express = require('express')
+const path = require('path');
 const mustacheExpress = require('mustache-express')
 const session = require('express-session')
 const db = require('./src/db')
@@ -58,10 +59,20 @@ app.use((request, response, next) => {
     next()
 });
 
+// Possibilita mostrar imagens pelo site
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 // Define as rotas da aplicação (declaradas na pasta /src/routes/)
-app.use('/', require('./src/routes/anotacaoRoutes'));
+app.use('/', require('./src/routes/homeRoutes'));
 app.use('/', require('./src/routes/usuarioRoutes')); // informação usuario 
 app.use('/', require('./src/routes/autenticacaoRoutes')); //validação autenticação
+app.use('/', require('./src/routes/livrariaRoutes'));
+app.use('/', require('./src/routes/livroRoutes'));
+app.use('/', require('./src/routes/imagemRoutes'));
+
+app.get('/', (request, response) => {
+    response.redirect('/home')
+})
 
 db.sync(() => console.log(`Banco de dados conectado`));
 
