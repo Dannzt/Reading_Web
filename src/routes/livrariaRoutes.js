@@ -3,7 +3,6 @@ const router = express.Router();
 
 const livrariaController = require('../controller/livrariaController');
 
-router.get('/cadastrar-livraria', livrariaController.cadastrarLivraria);
 router.get('/api/livrarias', livrariaController.listarLivrarias);
 
 module.exports = router;

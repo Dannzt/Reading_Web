@@ -21,7 +21,7 @@ async function criarLivro(request) {
         descricao: request.body.descricao,
         pagina_total: parseInt(request.body.pagina_total),
         pagina_atual: parseInt(request.body.pagina_atual),
-        imagem: imagem.uuid
+        imagem: imagem.path.replace(/\\/g, '/') //replace() arruma o formato do caminho de imagem.
     };
     return Livro.create(livro);
 }
@@ -30,15 +30,15 @@ async function criarLivro(request) {
 //retornado um caminho default.
 async function getLivros(livraria) {
     try {
-        const livro = await Livro.findAll({
-            where: { livraria_id: livraria.id }
+        const livros = await Livro.findAll({
+            where: { livraria_id: livraria.id },
+            raw: true
         });
-
-        if (livro.length === 0) {
+        if (livros.length === 0) {
             console.log('WARNING!: NÃO FOI ENCONTRADO LIVROS NA LIVRARIA!')
             return undefined;
         } else {
-            return livro[0];
+            return livros;
         }
     } catch(err) {
         console.log(`ERRO AO OS LIVROS!: ${err}`);

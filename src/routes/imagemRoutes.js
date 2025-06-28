@@ -19,10 +19,13 @@ const storage = multer.diskStorage({
 const imagesUpload = multer({ storage: storage })
 
 const imagemController = require('../controller/imagemController');
+const autenticacaoController = require('../controller/autenticacaoController')
 
-router.post('/criar-imagem', imagesUpload.single('imagem'), imagemController.cadastrarImagem);
-router.get('/imagem-teste', (request, response) => {
-    response.render('imagem_test.html')
-})
+router.post(
+    '/criar-imagem',
+    autenticacaoController.verificarUsuario,
+    imagesUpload.single('imagem'),
+    imagemController.cadastrarImagem
+);
 
 module.exports = router

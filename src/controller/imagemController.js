@@ -27,7 +27,7 @@ async function getImagem(uuid) {
         if (imagem.length === 0) {
             return 'defaults/images/no_image.png';
         } else {
-            return imagem[0].path;
+            return imagem[0].path.replace(/\\/g, '/'); //replace() arruma o formato do caminho de imagem.
         }
     } catch(err) {
         console.log(`ERRO AO OBTER IMAGEM!: ${err}`);

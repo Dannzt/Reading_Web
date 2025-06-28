@@ -13,21 +13,20 @@
     <!--NAVBAR-->
 <body>
     <nav>
-    <div id="navbar" class="navbar-custom">
-        <div id="logo" class="logo">
+        <div id="navbar" class="navbar-custom">
+            <div id="logo" class="logo">
+                <div id="nav-links" class="nav-links">
+                    <a href="home.html">📚🕷🕸 Reading Web</a>
+                </div>
+            </div>
             <div id="nav-links" class="nav-links">
-            <a href="home.html">📚🕷🕸 Reading Web</a>
+                <a href="#">USER</a>
+                <a href="#">LIVROS</a>
+                <a href="#">LISTAS</a>
+                <button class="btn-log">+ 📚</button>
             </div>
         </div>
-        <div id="nav-links" class="nav-links">
-            <a href="#">USER</a>
-            <a href="#">LIVROS</a>
-            <a href="#">LISTAS</a>
-            <button class="btn-log">+ 📚</button>
-        </div>
-    </div>
-</nav>
-
+    </nav>
     <nav class="navbar-custom p-3">
         <div class="d-flex col-3 flex-wrap flex-md-nowrap justify-content-between">
         </div>
@@ -82,21 +81,19 @@
                 </form>
         </div>
     </div>
-
-
                 <div class="row my-4">
-                    {{#anotacaos}}
+                    {{#livros}}
                     <div class="col-3 mt-3">
                         <div class="card">
-                            <h3 class="card-header {{estilo}}">{{titulo}}</h3>
+                            <h3 class="card-header">{{titulo}}</h3>
                             <div class="card-body">
-                                <h5 class="card-title">{{subtitulo}}</h5>
-                                <p class="card-text">{{texto}}</p>
+                                <img src="/{{imagem}}" class="card-img-top" alt="Capa do Livro {{titulo}}">
+                                <h5 class="card-title">{{genero}}</h5>
+                                <p class="card-text">{{descricao}}</p>
                             </div>
                         </div>
                     </div>
-                    {{/anotacaos}}
-
+                    {{/livros}}
                 </div>
 
                 <footer class="pt-5 d-flex justify-content-between">

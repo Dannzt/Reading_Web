@@ -19,12 +19,14 @@ const storage = multer.diskStorage({
 const imagesUpload = multer({ storage: storage })
 
 const livroController = require('../controller/livroController');
+const autenticacaoController = require('../controller/autenticacaoController')
 
-router.post('/cadastrar-livro', imagesUpload.single('imagem'), livroController.cadastrarLivro);
-router.get('/livro-teste', (request, response) => {
-    response.render('livro_teste.html')
-})
-
+router.post(
+    '/cadastrar-livro',
+    autenticacaoController.verificarUsuario,
+    imagesUpload.single('imagem'),
+    livroController.cadastrarLivro
+);
 router.get('/api/livros', livroController.listarLivros);
 
 module.exports = router;

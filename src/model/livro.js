@@ -33,7 +33,7 @@ const Livro = database.define('livro', {
         allowNull: false
     },
     imagem: {
-        type: Sequelize.UUID,
+        type: Sequelize.STRING,
         allowNull: true
     }
 });
