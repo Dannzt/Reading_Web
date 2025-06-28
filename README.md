@@ -58,7 +58,7 @@ Exemplo Visual:
 
 Exemplo Visual: 
 <p align="center">
-<img  src="https://i.imgur.com/Ns3Y82r.gif"
+<img  src="https://i.imgur.com/manYDL7.gif"
 </p>
 
 ## Tecnologias Utilizadas: 
