@@ -9,7 +9,9 @@ async function homeView(request, response) {
     try {
         let livraria = await LivrariaController.getLivraria(request.session.usuario)
         let livros = await LivroController.getLivros(livraria)
-        response.render('home.html', livros)
+        response.render('home.html', {
+            livros: livros
+        })
 
     } catch(err) {
         console.log(`ERRO DURANTE A RENDERIZAÇÃO DA /HOME: ${err}`)

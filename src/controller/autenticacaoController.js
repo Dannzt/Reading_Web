@@ -1,7 +1,7 @@
 const Usuario = require('../model/usuario'); // chamando tabela de usuarios
 
 async function autenticarUsuario(request, response){
-    const usuario = await Usuario.findAll({ //await garantir codigo sequencial (async)
+    const usuario = await Usuario.findOne({ //await garantir codigo sequencial (async)
         where: {
         email: request.body.email,
         senha: request.body.senha
@@ -11,7 +11,7 @@ async function autenticarUsuario(request, response){
     // grava a informação do usuario dentro da sessão 
     if(usuario !== null){
         request.session.autorizado = true; //criando um valor temporário para mostrar que está logado na sessão
-        request.session.usuario = usuario[0];
+        request.session.usuario = usuario;
         response.redirect('/home'); // apos a validação retorna para a home page
     } else {
         console.log("Usuario não detectado!")

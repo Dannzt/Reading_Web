@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-    <!--NAVBAR-->
+<!--NAVBAR-->
 <body>
     <nav>
         <div id="navbar" class="navbar-custom">
@@ -19,19 +19,10 @@
                     <a href="home.html">📚🕷🕸 Reading Web</a>
                 </div>
             </div>
-            <div id="nav-links" class="nav-links">
-                <a href="#">USER</a>
-                <a href="#">LIVROS</a>
-                <a href="#">LISTAS</a>
-                <button class="btn-log">+ 📚</button>
-            </div>
         </div>
     </nav>
     <nav class="navbar-custom p-3">
         <div class="d-flex col-3 flex-wrap flex-md-nowrap justify-content-between">
-        </div>
-        <div class="col-6">
-            <input class="form-control" type="text" placeholder="Buscar" aria-label="Buscar">
         </div>
         <div class="col-3 d-flex align-items-center justify-content-md-end mt-3 mt-md-0">
             <a class="btn btn-secondary" href="">Configurações</a>
@@ -39,77 +30,78 @@
         </div>
     </nav>
 <br><br>
-        <!-- BOX REVIEW -->
+    <!-- BOX REVIEW -->
     <div class="main-content">
         <div id="form-registro" class="form-registro">
-<form action="/cadastrar_anotacao" method="post">
-                    <div class="row mt-3 mb-5">
-                        <h3>Nova avaliação</h3>
-                        <div class="col-12">
-                            <div class="mt-1">
-                                <select class="w-100" name="estilo" id="estilo">
-                                    <option value="bg-secondary text-white" class="bg-secondary text-white">Padrão</option>
-                                    <option value="bg-primary text-white" class="bg-primary text-white">Primary</option>
-                                    <option value="bg-success text-white" class="bg-success text-white">Success</option>
-                                    <option value="bg-warning" class="bg-warning">Warning</option>
-                                    <option value="bg-danger" class="bg-danger">Danger</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="mt-1">
-                                <label for="titulo" class="form-label">Título:</label>
-                                <input type="text" class="form-control" id="titulo" name="titulo">
-                            </div>
-                            
-                        </div>
-                        <div class="col-6">
-                            <div class="mt-1">
-                                <label for="subtitulo" class="form-label">Genêro:</label>
-                                <input type="text" class="form-control" id="subtitulo" name="subtitulo">
-                            </div>
-
-                        </div>
-                        <div class="col-12">
-                            <div class="mt-1">
-                                <label for="texto" class="form-label">Texto:</label>
-                                <textarea class="form-control" rows="8" id="texto" name="texto"></textarea>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-success w-100 mt-2">Adicionar</button>
-                    </div>
-                </form>
-        </div>
-    </div>
-                <div class="row my-4">
-                    {{#livros}}
-                    <div class="col-3 mt-3">
-                        <div class="card">
-                            <h3 class="card-header">{{titulo}}</h3>
-                            <div class="card-body">
-                                <img src="/{{imagem}}" class="card-img-top" alt="Capa do Livro {{titulo}}">
-                                <h5 class="card-title">{{genero}}</h5>
-                                <p class="card-text">{{descricao}}</p>
-                            </div>
+            <form action="/cadastrar-livro" method="post" enctype="multipart/form-data">
+                <div class="row mt-3 mb-5">
+                    <h3>Nova avaliação</h3>
+                    <div class="col-12">
+                        <div class="mt-1">
+                            <label for="imagem" class="form-label">Imagem</label>
+                            <input type="file" class="form-control" name="imagem" id="imagem">
                         </div>
                     </div>
-                    {{/livros}}
+                    <div class="col-6">
+                        <div class="mt-1">
+                            <label for="titulo" class="form-label">Título:</label>
+                            <input type="text" class="form-control" id="titulo" name="titulo">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mt-1">
+                            <label for="genero" class="form-label">Genêro:</label>
+                            <input type="text" class="form-control" id="genero" name="genero">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mt-1">
+                            <label for="pagina_total" class="form-label">Total de Paginas:</label>
+                            <input type="number" class="form-control" id="pagina_total" name="pagina_total">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mt-1">
+                            <label for="pagina_atual" class="form-label">Pagina Atual:</label>
+                            <input type="number" class="form-control" id="pagina_atual" name="pagina_atual">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mt-1">
+                            <label for="descricao" class="form-label">Texto:</label>
+                            <textarea class="form-control" rows="8" id="descricao" name="descricao"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100 mt-2">Adicionar</button>
                 </div>
-
-                <footer class="pt-5 d-flex justify-content-between">
-                    <span>© 2025</span>
-                    <ul class="nav m-0">
-                        <li class="nav-item">
-                            <a class="nav-link text-secondary" href="https://github.com/Dannzt/Reading_Web/blob/main/LICENSE">Termos de uso</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-secondary" href="https://github.com/Dannzt/Reading_Web">Contato</a>
-                        </li>
-                    </ul>
-                </footer>
-            </main>
+            </form>
         </div>
     </div>
+    <div class="row my-4">
+        {{#livros}}
+        <div class="col-3 mt-3">
+            <div class="card">
+                <h3 class="card-header">{{titulo}}</h3>
+                <div class="card-body">
+                    <img src="/{{imagem}}" class="card-img-top" alt="Capa do Livro {{titulo}}">
+                    <h5 class="card-title">{{genero}}</h5>
+                    <p class="card-text">{{descricao}}</p>
+                </div>
+            </div>
+        </div>
+        {{/livros}}
+    </div>
+    <footer class="pt-5 d-flex justify-content-between">
+        <span>© 2025</span>
+        <ul class="nav m-0">
+            <li class="nav-item">
+                <a class="nav-link text-secondary" href="https://github.com/Dannzt/Reading_Web/blob/main/LICENSE">Termos de uso</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-secondary" href="https://github.com/Dannzt/Reading_Web">Contato</a>
+            </li>
+        </ul>
+    </footer>
 </body>
 
 </html>
